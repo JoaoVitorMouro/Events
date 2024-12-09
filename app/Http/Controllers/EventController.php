@@ -4,39 +4,39 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ItemStoreRequest;
 use App\Http\Requests\ItemUpdateRequest;
-use App\Http\Resources\ItemResource;
-use App\Services\ItemService;
+use App\Http\Resources\EventResource;
+use App\Services\EventService;
 
-class ItemController extends Controller
+class EventController extends Controller
 {
-    private $itemService;
+    private $EventService;
 
-    public function __construct(ItemService $itemService)
+    public function __construct(EventService $EventService)
     {
-        $this->itemService = $itemService;
+        $this->EventService = $EventService;
     }
 
     public function get()
     {
-        $items = $this->itemService->get();
+        $items = $this->EventService->get();
 
-        return ItemResource::collection($items);
+        return EventResource::collection($items);
     }
 
     public function store(ItemStoreRequest $request)
     {
         $data = $request->validated();
-        $item = $this->itemService->store($data);
+        $item = $this->EventService->store($data);
 
-        return new ItemResource($item);
+        return new EventResource($item);
     }
 
     public function details($id)
     {
-        $item = $this->itemService->details($id);
+        $item = $this->EventService->details($id);
 
         if ($item) {
-            return new ItemResource($item);
+            return new EventResource($item);
         }
         return response()->json([
             "message" => "Item nao encotrado",
@@ -46,9 +46,9 @@ class ItemController extends Controller
     public function update(ItemUpdateRequest $request, $id)
     {
         $data = $request->validated();
-        $item = $this->itemService->update($id, $data);
+        $item = $this->EventService->update($id, $data);
         if ($item) {
-            return new ItemResource($item);
+            return new EventResource($item);
         }
 
         return response()->json([
@@ -58,9 +58,9 @@ class ItemController extends Controller
 
     public function destroy($id)
     {
-        $item = $this->itemService->destroy($id);
+        $item = $this->EventService->destroy($id);
         if ($item) {
-            return new ItemResource($item);
+            return new EventResource($item);
         }
 
         return response()->json([

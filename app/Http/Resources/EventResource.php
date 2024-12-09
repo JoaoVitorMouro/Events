@@ -6,7 +6,7 @@ use App\Models\ItemType;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ItemResource extends JsonResource
+class EventResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,9 +17,10 @@ class ItemResource extends JsonResource
     {
         return [
             "id" => $this->id,
-            "name" => $this->name,
+            "title" => $this->title,
             "description" => $this->description,
-            "price" => $this->price,
+            "start_time" => $this->start_time,
+            "end_time" => $this->end_time,
             "type"=> new ItemTypeResource($this->type)
         ];
     }

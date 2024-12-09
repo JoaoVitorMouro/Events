@@ -19,7 +19,7 @@ class PurchaseDetailsResource extends JsonResource
             "user_id" => $this->user_id,
             "payment_type" => $this->payment_type,
             "payment_status" => $this->payment_status,
-            'items'=> PurchaseItemResource::collection($this->items),
+            'items'=> PurchaseEventResource::collection($this->items),
             'delivery_address'=> new DeliveryAddressResource($this->delivery_address)
         ];
     }

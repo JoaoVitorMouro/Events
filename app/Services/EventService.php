@@ -8,7 +8,7 @@ use App\Models\Item;
 use App\Repositories\ItemRepository;
 use App\Repositories\ItemTypeRepository;
 
-class ItemService
+class EventService
 {
     private $itemRepository;
 

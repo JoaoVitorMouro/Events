@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PurchaseItemResource extends JsonResource
+class PurchaseEventResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,7 +15,7 @@ class PurchaseItemResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-          "item"=> new ItemResource($this->item),
+          "item"=> new EventResource($this->item),
           "quantity"=> $this->item_quantity,
           'price'=>$this->item_price,
         ];
