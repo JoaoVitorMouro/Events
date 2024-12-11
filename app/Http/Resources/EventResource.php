@@ -21,7 +21,8 @@ class EventResource extends JsonResource
             "description" => $this->description,
             "start_time" => $this->start_time,
             "end_time" => $this->end_time,
-            "type"=> new ItemTypeResource($this->type)
+            "subscriptions"=> new ItemTypeResource($this->type),
+            
         ];
     }
 }
