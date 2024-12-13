@@ -1,4 +1,7 @@
+João Vitor Mouro Barboza
+
 Event Management API
+
 Uma API completa para gerenciamento de eventos, desenvolvida com Laravel seguindo boas práticas de arquitetura e design. Este projeto implementa autenticação JWT, sistema de filas, relacionamentos entre modelos e recursos robustos para manipulação de dados.
 
 Funcionalidades
