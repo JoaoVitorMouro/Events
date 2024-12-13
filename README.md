@@ -69,6 +69,4 @@ Autenticação
 
 JWT (JSON Web Token): Controle de acesso seguro para endpoints da API.
 
-Sistema de Filas
 
-Job para enviar notificações por e-mail de forma assíncrona, melhorando o desempenho e escalabilidade.
