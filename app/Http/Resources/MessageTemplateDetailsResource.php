@@ -2,10 +2,11 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class DeliveryAddressResource extends JsonResource
+class MessageTemplateDetailsResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,11 +16,8 @@ class DeliveryAddressResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            "number" => $this->number,
-            "address" => $this->address,
-            "district" => $this->district,
-            "city" => $this->city,
-            "state" => $this->state,
+            "name" => $this->name,
+            "content" => $this->content,
         ];
     }
 }

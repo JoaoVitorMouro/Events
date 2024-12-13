@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ItemTypeResource extends JsonResource
+class NotificationDetailsResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,8 +18,11 @@ class ItemTypeResource extends JsonResource
 //        dd($items_data);
         return [
             "id" => $this->id,
-            "name" => $this->name,
-            "description" => $this->description,
+            "type" => $this->type,
+            "status" => $this->description,
+            // "user" => new UserResource($this->user_id),
+            // "event_id" => new EventResource($this->event_id),
+            "message" => new MessageTemplateDetailsResource($this->message),
         ];
     }
 

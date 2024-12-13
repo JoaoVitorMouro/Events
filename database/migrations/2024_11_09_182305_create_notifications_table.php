@@ -17,7 +17,10 @@ return new class extends Migration
             $table->foreignId('event_id')->constrained()->onDelete('cascade');
             $table->enum('type', ['email', 'sms']);
             $table->enum('status', ['pending', 'sent', 'failed'])->default('pending');
-            $table->text('message')->nullable();
+            $table->foreignId('message_template_id')
+            ->nullable()
+            ->constrained('message_templates')
+            ->onDelete('set null');
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('purchases');
+        Schema::dropIfExists('notifications');
     }
 };

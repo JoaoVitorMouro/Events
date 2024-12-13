@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EventRequest extends FormRequest
+class MessageTemplateUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,10 +22,8 @@ class EventRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'=>'required|string|max:255',
-            'description'=>'required|string|max:511',
-            'start_time'=>'required|string',
-            'end_time'=>'required|string'
+            'name'=>'string|max:255',
+            'content'=>'string|max:511'
         ];
     }
 }

@@ -2,10 +2,11 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PurchaseEventResource extends JsonResource
+class UserResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,9 +16,8 @@ class PurchaseEventResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-          "item"=> new EventResource($this->item),
-          "quantity"=> $this->item_quantity,
-          'price'=>$this->item_price,
+            "name" => $this->name,
+            "email" => $this->email,
         ];
     }
 }

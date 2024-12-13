@@ -7,12 +7,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class MessageTemplate extends Model
 {
-    use SoftDeletes;
-    protected $table = 'message_template';
+    protected $table = 'message_templates';
     protected $fillable = [
         'name',
         'content',
     ];
 
+    public function notifications()
+    {
+        return $this->hasMany(Notification::class, 'message_template_id', 'id');
+    }
 
 }

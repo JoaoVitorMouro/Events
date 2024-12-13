@@ -2,11 +2,9 @@
 
 namespace App\Http\Requests;
 
-use App\Enums\PaymentType;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class ReprocessPaymentRequest extends FormRequest
+class NotificationStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +22,10 @@ class ReprocessPaymentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'card_number' => 'min:13|max:16|required',
-            'expiry_date' => 'required',
-            'cvv' => '|min:3|max:4|required',
+            'type'=>'required|string|max:255',
+            'user_id'=>'required|exists:users,id',
+            'event_id'=>'required|exists:events,id',
+            'message_template_id'=>'required|exists:message_templates,id',
         ];
     }
 }

@@ -6,7 +6,7 @@ use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class EventResource extends JsonResource
+class EventResourceSubscription extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -21,9 +21,9 @@ class EventResource extends JsonResource
             "description" => $this->description,
             "start_time" => $this->start_time,
             "end_time" => $this->end_time,
-            // "notifications"=> new NotificationResource($this->notifications),
-            // "subscriptions"=> new SubscriptionResource($this->subscriptions),
-
+            "notifications" => $this->notifications->isNotEmpty()
+                ? NotificationDetailsResource::collection($this->notifications)
+                : null,
         ];
     }
 }

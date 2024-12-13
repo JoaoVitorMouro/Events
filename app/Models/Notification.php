@@ -3,18 +3,17 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Notification extends Model
 {
-    use SoftDeletes;
-    protected $table = 'notification';
+
+    protected $table = 'notifications';
     protected $fillable = [
         'user_id',
         'event_id',
         'type',
         'status',
-        'message'
+        'message_template_id'
     ];
 
     public function user(){
@@ -22,5 +21,8 @@ class Notification extends Model
     }
     public function event(){
         return $this->belongsTo(Event::class,'event_id','id');
+    }
+    public function message(){
+        return $this->belongsTo(MessageTemplate::class,'message_template_id','id');
     }
 }

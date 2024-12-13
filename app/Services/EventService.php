@@ -4,43 +4,43 @@
 namespace App\Services;
 
 
-use App\Models\Item;
-use App\Repositories\ItemRepository;
-use App\Repositories\ItemTypeRepository;
+use App\Models\Event;
+use App\Repositories\EventRepository;
+use App\Repositories\EventTypeRepository;
 
 class EventService
 {
-    private $itemRepository;
+    private $EventRepository;
 
-    public function __construct(ItemRepository $itemRepository)
+    public function __construct(EventRepository $eventRepository)
     {
-        $this->itemRepository = $itemRepository;
+        $this->EventRepository = $eventRepository;
 
     }
 
     public function get()
     {
-        return $this->itemRepository->get();
+        return $this->EventRepository->get();
     }
 
     public function store($data)
     {
-        return $this->itemRepository->store($data);
+        return $this->EventRepository->store($data);
     }
 
     public function details($id)
     {
-        return $this->itemRepository->details($id);
+        return $this->EventRepository->details($id);
     }
 
     public function update($id, $data)
     {
-        return $this->itemRepository->update($id, $data);
+        return $this->EventRepository->update($id, $data);
     }
 
     public function destroy($id)
     {
-        return $this->itemRepository->destroy($id);
+        return $this->EventRepository->destroy($id);
     }
 
 }
